@@ -1,0 +1,44 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+    "name": "Ubuntu Bayesian-Filtering-and-Smoothing",
+    "dockerComposeFile": "docker-compose.yml",
+    // service name inside docker compose
+    "service": "dev-bayesian-filtering-and-smoothing",
+    // Workspace folder inside devcontainer
+    "workspaceFolder": "/workspace",
+    // Mounts are managed by docker-compose.yml
+    "mounts": [],
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    // "features": {},
+
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+
+    // Configure tool-specific properties.
+    "customizations": {
+        "settings": {
+            // Sets the default terminal to bash in VS Code's integrated terminal
+            "terminal.integrated.defaultProfile.linux": "bash",
+            // Set default python interpreter
+            "python.defaultInterpreterPath": "/opt/venv/bin/python"
+        },
+        // Configure properties specific to VS Code.
+        "vscode": {
+            // Add the IDs of extensions you want installed when the container is created.
+            "extensions": [
+                "streetsidesoftware.code-spell-checker",
+                "ms-python.python",
+                "ms-azuretools.vscode-docker",
+                "mhutchie.git-graph",
+                "ms-toolsai.jupyter"
+            ]
+        }
+    },
+
+    // // Tells VS Code to use the vscode user inside the container (created by the base image)
+    // "remoteUser": "vscode"
+
+    // Just checks Python and pip are installed.
+    "postCreateCommand": "python3 --version && pip3 --version"
+}

@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  dev-bayesian-filtering-and-smoothing:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Set the image name to be used for the devcontainer
+    image: dev-bayesian-filtering-and-smoothing:latest
+    # Setup volumes
+    volumes:
+      # Mounts your whole project into the container at /workspace
+      - ..:/workspace
+      # Share your SSH keys (read-only)
+      - ~/.ssh:/root/.ssh:ro
+    # ports:
+    #   - "8888:8888"  # Expose Jupyter notebook port if needed
+    # # Runs the container as the vscode user instead of root
+    # user: vscode
+    # Keeps the container running forever (so VS Code can connect to it)
+    command: sleep infinity
